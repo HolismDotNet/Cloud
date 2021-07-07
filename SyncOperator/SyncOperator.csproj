@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <AssemblyName>Holism.Azure.SyncOperator</AssemblyName>
+    <RootNamespace>Holism.Azure.SyncOperator</RootNamespace>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <None Update="SettingsOverride.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <Import Project="$(HolismProjectsRoot)\Framework\ProjectWindowsService.targets" />
+  <Import Project="$(HolismProjectsRoot)\Framework\ProjectReusable.targets" />
+  <Import Project="$(HolismProjectsRoot)\Cloud\ProjectAzure.targets" />
+
+</Project>

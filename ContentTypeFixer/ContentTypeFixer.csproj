@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>Holism.Azure.ContentTypeFixer</AssemblyName>
+    <RootNamespace>Holism.Azure.ContentTypeFixer</RootNamespace>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <None Update="SettingsOverride.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <Import Project="$(HolismProjectsRoot)\Framework\ProjectConsole.targets" />
+  <Import Project="$(HolismProjectsRoot)\Cloud\ProjectAzure.targets" />
+
+</Project>

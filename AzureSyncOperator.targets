@@ -2,11 +2,11 @@
 
   <ItemGroup>
     <Reference Include="Holism.Azure.SyncOperator">
-      <HintPath>$(HolismProjectsRoot)\Cloud\Packages\Holism.Azure.SyncOperator.dll</HintPath>
+      <HintPath>/HolismDotNet/Cloud/Packages/Holism.Azure.SyncOperator.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
   
-  <Import Project="$(HolismProjectsRoot)\Cloud\ProjectAzure.targets" />
+  <Import Project="/HolismDotNet/Cloud/Azure.targets" />
   
 </Project>

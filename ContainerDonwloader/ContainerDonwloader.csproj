@@ -1,11 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup Label="Globals">
-    <SccProjectName>SAK</SccProjectName>
-    <SccProvider>SAK</SccProvider>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccLocalPath>SAK</SccLocalPath>
-  </PropertyGroup>
+  <Import Project="/HolismDotNet/Framework/DotNet.targets" />
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -13,13 +8,7 @@
     <RootNamespace>Holism.Azure.ContainerDonwloader</RootNamespace>
   </PropertyGroup>
 
-  <ItemGroup>
-    <None Update="SettingsOverride.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-
-  <Import Project="$(HolismProjectsRoot)\Framework\ProjectWindowsService.targets" />
-  <Import Project="$(HolismProjectsRoot)\Cloud\ProjectAzureSyncOperator.targets" />
+  <Import Project="/HolismDotNet/Framework/ProjectWindowsService.targets" />
+  <Import Project="/HolismDotNet/Cloud/AzureSyncOperator.targets" />
 
 </Project>

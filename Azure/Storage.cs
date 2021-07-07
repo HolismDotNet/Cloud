@@ -1,8 +1,6 @@
 ﻿using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
 using Holism.Framework;
-using Holism.Framework.Extensions;
-using Holism.Image;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -40,8 +38,9 @@ namespace Holism.Azure
         public static void UploadImageAndCreateThumbnail(byte[] bytes, Guid guid, string containerName, int? maxWith, int? maxHeight)
         {
             UploadImage(DefaultStorageConnectionStringKey, bytes, guid, containerName);
-            var thumbnail = ImageHelper.MakeImageThumbnail(maxWith, maxHeight, bytes).GetBytes();
-            Upload(DefaultStorageConnectionStringKey, thumbnail, guid.ToString() + "_thumbnail.png", containerName, "image/png");
+            throw new NotImplementedException();
+            // var thumbnail = ImageHelper.MakeImageThumbnail(maxWith, maxHeight, bytes).GetBytes();
+            // Upload(DefaultStorageConnectionStringKey, thumbnail, guid.ToString() + "_thumbnail.png", containerName, "image/png");
         }
 
         public static void UploadImageAndCreateThumbnail(string connectionStringKey, byte[] bytes, Guid guid, string containerName, int? maxWith, int? maxHeight)
@@ -83,7 +82,7 @@ namespace Holism.Azure
                 BlobContainerClient container = GetContainer(connectionStringKey, containerName);
                 BlobClient blob = container.GetBlobClient(fileName);
                 var blobHttpHeaders = new BlobHttpHeaders();
-                if (contentType.IsNotNull())
+                if (contentType != null)
                 {
                     blobHttpHeaders.ContentType = contentType;
                 }
@@ -91,11 +90,12 @@ namespace Holism.Azure
             }
             catch (Exception ex)
             {
+                Logger.LogException(ex);
                 BlobContainerClient container = GetContainer(connectionStringKey, containerName);
                 TryToCreateContainerAndSetAccess(container);
                 BlobClient blockBlob = container.GetBlobClient(fileName);
                 var blobHttpHeaders = new BlobHttpHeaders();
-                if (contentType.IsNotNull())
+                if (contentType != null)
                 {
                     blobHttpHeaders.ContentType = contentType;
                 }
@@ -345,7 +345,7 @@ namespace Holism.Azure
         {
             if (containerName.ToArray().Any(i => char.IsUpper(i)))
             {
-                throw new FrameworkException($"container name should be all lowercase, and all alphanumeric. @{containerName} is not valid.");
+                throw new ServerException($"container name should be all lowercase, and all alphanumeric. @{containerName} is not valid.");
             }
             EnsureThisKeyIsDefined(connectionStringKey);
             BlobServiceClient storageAccount = new BlobServiceClient(Config.GetSetting(connectionStringKey));
@@ -380,7 +380,7 @@ namespace Holism.Azure
         {
             if (!connectionStringKey.EndsWith("ConnectionString"))
             {
-                throw new FrameworkException("Any storage connection string key should end with ConnectionString");
+                throw new ServerException("Any storage connection string key should end with ConnectionString");
             }
             Config.GetSetting(connectionStringKey);
         }

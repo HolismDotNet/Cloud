@@ -19,8 +19,8 @@
     </None>
   </ItemGroup>
 
-  <Import Project="$(HolismProjectsRoot)\Framework\ProjectWindowsService.targets" />
-  <Import Project="$(HolismProjectsRoot)\Framework\ProjectReusable.targets" />
+  <Import Project="/HolismDotNet/Framework/ProjectWindowsService.targets" />
+  <Import Project="/HolismDotNet/Framework/ProjectReusable.targets" />
   <Import Project="$(HolismProjectsRoot)\Cloud\ProjectAzure.targets" />
 
 </Project>

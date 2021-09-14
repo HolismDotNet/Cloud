@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <Import Project="/HolismDotNet/Framework/DotNet.targets" />
+  <Import Project="/HolismDotNet/Infra/DotNet.targets" />
 
   <PropertyGroup>
     <AssemblyName>Holism.Azure</AssemblyName>
@@ -8,7 +8,7 @@
   </PropertyGroup>
 
 
-  <Import Project="/HolismDotNet/Framework/General.targets" />
-  <Import Project="/HolismDotNet/Framework/Reusable.targets" />
+  <Import Project="/HolismDotNet/Infra/General.targets" />
+  <Import Project="/HolismDotNet/Infra/Reusable.targets" />
 
 </Project>

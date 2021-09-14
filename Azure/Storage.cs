@@ -1,6 +1,6 @@
 ﻿using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
-using Holism.Framework;
+using Holism.Infra;
 using System;
 using System.Collections.Generic;
 using System.IO;

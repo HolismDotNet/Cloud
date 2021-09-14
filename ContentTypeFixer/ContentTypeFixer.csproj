@@ -19,7 +19,7 @@
     </None>
   </ItemGroup>
 
-  <Import Project="/HolismDotNet/Framework/ProjectConsole.targets" />
+  <Import Project="/HolismDotNet/Infra/ProjectConsole.targets" />
   <Import Project="$(HolismProjectsRoot)\Cloud\ProjectAzure.targets" />
 
 </Project>

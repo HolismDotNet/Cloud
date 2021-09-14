@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <Import Project="/HolismDotNet/Framework/DotNet.targets" />
+  <Import Project="/HolismDotNet/Infra/DotNet.targets" />
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -8,7 +8,7 @@
     <RootNamespace>Holism.Azure.ContainerDonwloader</RootNamespace>
   </PropertyGroup>
 
-  <Import Project="/HolismDotNet/Framework/ProjectWindowsService.targets" />
+  <Import Project="/HolismDotNet/Infra/ProjectWindowsService.targets" />
   <Import Project="/HolismDotNet/Cloud/AzureSyncOperator.targets" />
 
 </Project>

@@ -19,7 +19,7 @@ namespace Holism.Azure.ContainerDonwloader
                         BlobListProvider = () => Storage.GetBlobs("databasepermanentbackups")
                     }
                 },
-                LocalPath = Framework.Config.GetSetting("LocalFolder")
+                LocalPath = Infra.Config.GetSetting("LocalFolder")
             };
             WindowsService.Helper.Run<SyncOperationService>();
         }

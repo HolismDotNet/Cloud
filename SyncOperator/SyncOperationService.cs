@@ -1,5 +1,5 @@
-﻿using Holism.Framework;
-using Holism.Framework.Extensions;
+﻿using Holism.Infra;
+using Holism.Infra.Extensions;
 using Holism.WindowsService;
 using System;
 using System.Collections.Generic;
@@ -52,19 +52,19 @@ namespace Holism.Azure.SyncOperator
         {
             if (Parameters.IsNull())
             {
-                throw new FrameworkException($"{nameof(Parameters)} is null");
+                throw new ServerException($"{nameof(Parameters)} is null");
             }
             if (Parameters.Containers.Count == 0)
             {
-                throw new FrameworkException($"No container is specified to be synced");
+                throw new ServerException($"No container is specified to be synced");
             }
             if (Parameters.LocalPath.IsNothing())
             {
-                throw new FrameworkException($"Please specify a local path for syncing operation");
+                throw new ServerException($"Please specify a local path for syncing operation");
             }
             if (!Directory.Exists(Parameters.LocalPath))
             {
-                throw new FrameworkException($"Local path {Parameters.LocalPath} does not exist");
+                throw new ServerException($"Local path {Parameters.LocalPath} does not exist");
             }
         }
 

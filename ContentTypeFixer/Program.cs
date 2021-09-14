@@ -7,7 +7,7 @@ namespace Holism.Azure.ContentTypeFixer
     {
         static void Main(string[] args)
         {
-            FrameworkConsole.Configure();
+            InfraConsole.Configure();
 
             var containers = Storage.GetContainers();
             foreach (var container in containers)

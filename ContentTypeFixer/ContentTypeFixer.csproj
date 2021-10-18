@@ -1,14 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup Label="Globals">
-    <SccProjectName>SAK</SccProjectName>
-    <SccProvider>SAK</SccProvider>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccLocalPath>SAK</SccLocalPath>
-  </PropertyGroup>
+  <Import Project="/HolismDotNet/Infra/DotNet.targets" />
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
     <AssemblyName>Holism.Azure.ContentTypeFixer</AssemblyName>
     <RootNamespace>Holism.Azure.ContentTypeFixer</RootNamespace>
   </PropertyGroup>
@@ -19,7 +13,6 @@
     </None>
   </ItemGroup>
 
-  <Import Project="/HolismDotNet/Infra/ProjectConsole.targets" />
-  <Import Project="$(HolismProjectsRoot)\Cloud\ProjectAzure.targets" />
+  <Import Project="/HolismDotNet/Cloud/Azure.targets" />
 
 </Project>

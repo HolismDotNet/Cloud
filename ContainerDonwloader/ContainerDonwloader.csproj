@@ -3,12 +3,10 @@
   <Import Project="/HolismDotNet/Infra/DotNet.targets" />
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
     <AssemblyName>Holism.Azure.ContainerDonwloader</AssemblyName>
     <RootNamespace>Holism.Azure.ContainerDonwloader</RootNamespace>
   </PropertyGroup>
 
-  <Import Project="/HolismDotNet/Infra/ProjectWindowsService.targets" />
-  <Import Project="/HolismDotNet/Cloud/AzureSyncOperator.targets" />
+  <Import Project="/HolismDotNet/Cloud/Azure.targets" />
 
 </Project>

@@ -318,21 +318,21 @@ namespace Holism.Azure
             EnsureThisKeyIsDefined(connectionStringKey);
             var cacheKey = connectionStringKey.Replace("ConnectionString", "") + "Cache";
             var cachedContainersKey = connectionStringKey.Replace("ConnectionString", "") + "CachedContainers";
-            if (Config.HasSetting(cacheKey))
+            if (InfraConfig.HasSetting(cacheKey))
             {
-                if (Config.HasSetting(cachedContainersKey))
+                if (InfraConfig.HasSetting(cachedContainersKey))
                 {
-                    if (Config.GetSetting(cachedContainersKey).Contains(container))
+                    if (InfraConfig.GetSetting(cachedContainersKey).Contains(container))
                     {
-                        return Config.GetSetting(cacheKey);
+                        return InfraConfig.GetSetting(cacheKey);
                     }
                 }
                 else
                 {
-                    return Config.GetSetting(cacheKey);
+                    return InfraConfig.GetSetting(cacheKey);
                 }
             }
-            BlobServiceClient storageAccount = new BlobServiceClient(Config.GetSetting(connectionStringKey));
+            BlobServiceClient storageAccount = new BlobServiceClient(InfraConfig.GetSetting(connectionStringKey));
             return storageAccount.Uri.ToString();
         }
 
@@ -348,7 +348,7 @@ namespace Holism.Azure
                 throw new ServerException($"container name should be all lowercase, and all alphanumeric. @{containerName} is not valid.");
             }
             EnsureThisKeyIsDefined(connectionStringKey);
-            BlobServiceClient storageAccount = new BlobServiceClient(Config.GetSetting(connectionStringKey));
+            BlobServiceClient storageAccount = new BlobServiceClient(InfraConfig.GetSetting(connectionStringKey));
             BlobContainerClient container = storageAccount.GetBlobContainerClient(containerName);
             return container;
         }
@@ -361,7 +361,7 @@ namespace Holism.Azure
         public static List<string> GetContainers(string connectionStringKey)
         {
             EnsureThisKeyIsDefined(connectionStringKey);
-            BlobServiceClient storageAccount = new BlobServiceClient(Config.GetSetting(connectionStringKey));
+            BlobServiceClient storageAccount = new BlobServiceClient(InfraConfig.GetSetting(connectionStringKey));
             var result = new List<string>();
             int i = 0;
             var pages = storageAccount.GetBlobContainers().AsPages();
@@ -382,7 +382,7 @@ namespace Holism.Azure
             {
                 throw new ServerException("Any storage connection string key should end with ConnectionString");
             }
-            Config.GetSetting(connectionStringKey);
+            InfraConfig.GetSetting(connectionStringKey);
         }
 
         public static void Copy(string sourceContainerName, string sourceBlobName, string destinationContainerName, string destinationBlobName)

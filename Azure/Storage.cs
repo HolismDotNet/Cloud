@@ -234,7 +234,7 @@ namespace Holism.Azure
         {
             try
             {
-                var bytes = new WebClient().DownloadData(GetUrl(null, token, null));
+                var bytes = new HttpClient().GetByteArrayAsync(GetUrl(null, token, null)).Result;
                 return bytes;
             }
             catch

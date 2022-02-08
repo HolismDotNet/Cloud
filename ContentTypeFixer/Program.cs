@@ -1,5 +1,5 @@
 ﻿// using Holism.Console;
-// using Holism.Infra;
+// using Infra;
 
 // namespace Holism.Azure.ContentTypeFixer
 // {

@@ -5,6 +5,8 @@ namespace Infra;
 
 public class Storage
 {
+    // todo: Use WebP instead of PNG => https://github.com/JosePineiro/WebP-wrapper
+
     // todo: Change uploads to take bytes array, instead of bytes, to make things easier and reduce boilerplate code.
     public const string DefaultStorageConnectionStringKey = "StorageConnectionString";
 
